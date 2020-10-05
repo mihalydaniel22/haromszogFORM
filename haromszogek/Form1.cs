@@ -93,5 +93,11 @@ namespace haromszogek
         {
 
         }
+
+        private void btnFajlbol_Click(object sender, EventArgs e)
+        {
+            lbHaromszoglista.Items.Clear();
+            ofdMegnyitas.ShowDialog();
+        }
     }
 }
