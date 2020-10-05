@@ -5,9 +5,9 @@ namespace haromszog
 {
     internal class Haromszog
     {
-        private int aoldal;
-        private int boldal;
-        private int coldal;
+        private double aoldal;
+        private double boldal;
+        private double coldal;
 
         public double Terulet { get; private set; }
         public double Kerulet { get; private set; }
@@ -44,7 +44,7 @@ namespace haromszog
             adatok.Add($"a: {aoldal} - b: {boldal} - c: {coldal}");
             if (Szerkesztheto)
             {
-                adatok.Add($"Kerület: {Kerulet} Terület: {Terulet}");
+                adatok.Add($"Kerület: {Kerulet:N2} Terület: {Terulet:N2}");
             }
             else
             {
@@ -54,7 +54,7 @@ namespace haromszog
             return adatok;
         }
 
-        public Haromszog(int aoldal, int boldal, int coldal)
+        public Haromszog(double aoldal, double boldal, double coldal)
         {
             this.aoldal = aoldal;
             this.boldal = boldal;

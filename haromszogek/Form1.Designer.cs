@@ -137,12 +137,14 @@
             // 
             // lbHaromszoglista
             // 
+            this.lbHaromszoglista.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lbHaromszoglista.FormattingEnabled = true;
-            this.lbHaromszoglista.ItemHeight = 24;
+            this.lbHaromszoglista.ItemHeight = 16;
             this.lbHaromszoglista.Location = new System.Drawing.Point(360, 53);
             this.lbHaromszoglista.Name = "lbHaromszoglista";
             this.lbHaromszoglista.Size = new System.Drawing.Size(206, 292);
             this.lbHaromszoglista.TabIndex = 10;
+            this.lbHaromszoglista.SelectedIndexChanged += new System.EventHandler(this.lbHaromszoglista_SelectedIndexChanged);
             // 
             // btnTorol
             // 

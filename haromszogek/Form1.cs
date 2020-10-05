@@ -14,9 +14,9 @@ namespace haromszogek
 {
     public partial class frmfo : Form
     {
-        private int aoldal;
-        private int boldal;
-        private int coldal;
+        private double aoldal;
+        private double boldal;
+        private double coldal;
 
 
 
@@ -41,25 +41,33 @@ namespace haromszogek
 
         private void btnSzamol_Click(object sender, EventArgs e)
         {
-            aoldal = Convert.ToInt32(tbAoldal.Text);
-            boldal = Convert.ToInt32(tbBoldal.Text);
-            coldal = Convert.ToInt32(tbColdal.Text);
-            
-            if (aoldal == 0 || boldal == 0 || coldal == 0)
+            try
             {
-                MessageBox.Show("Nem lehet nulla a háromszög oldala", "HIBA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                var h = new Haromszog(aoldal, boldal, coldal);
-               
+                aoldal = Convert.ToDouble(tbAoldal.Text);
+                boldal = Convert.ToDouble(tbBoldal.Text);
+                coldal = Convert.ToDouble(tbColdal.Text);
 
-                List<string> adatok = h.AdatokSzoveg();
-
-                foreach (var a in adatok)
+                if (aoldal == 0 || boldal == 0 || coldal == 0)
                 {
-                    lbHaromszoglista.Items.Add(a);
+                    MessageBox.Show("Nem lehet nulla a háromszög oldala", "HIBA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                else
+                {
+                    var h = new Haromszog(aoldal, boldal, coldal);
+
+
+                    List<string> adatok = h.AdatokSzoveg();
+
+                    foreach (var a in adatok)
+                    {
+                        lbHaromszoglista.Items.Add(a);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Számot adj meg!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbAoldal.Focus();
             }
         }
 
@@ -79,6 +87,11 @@ namespace haromszogek
                 MessageBox.Show("Nincs mit törölni");
             }
             
+        }
+
+        private void lbHaromszoglista_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
